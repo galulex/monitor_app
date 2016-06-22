@@ -19,11 +19,13 @@ class Instance
 
   def agent
     return unless errors.blank?
-    uri = URI.parse("#{url}:9292/verify?token=#{token}")
-    res = Net::HTTP.get_response(uri)
-    return if res.code == '200'
-    errors.add(:url, 'No agent running for this url or invalid token')
-  rescue StandardError
+    Timeout.timeout(3) do
+      uri = URI.parse("#{url}:9292/verify?token=#{token}")
+      res = Net::HTTP.get_response(uri)
+      return if res.code == '200'
+      errors.add(:url, 'No agent running for this url or invalid token')
+    end
+  rescue
     errors.add(:url, 'No agent running for this url or invalid token')
   end
 end
