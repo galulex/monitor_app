@@ -75,3 +75,4 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 end
 Rails.application.config.action_cable.allowed_request_origins = ['http://ec2-52-205-251-222.compute-1.amazonaws.com']
+Rails.application.config.action_cable.disable_request_forgery_protection = true
