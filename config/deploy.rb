@@ -23,5 +23,3 @@ namespace :stream do
     end
   end
 end
-
-after 'deploy:restart', 'stream:restart'
