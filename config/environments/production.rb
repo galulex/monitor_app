@@ -74,3 +74,5 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 end
+
+ActionCable.server.config.allowed_request_origins = [%r{(http|https):\/\/http://ec2-52-205-251-222.compute-1.amazonaws.com/}]

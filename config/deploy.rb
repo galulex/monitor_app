@@ -6,6 +6,8 @@ set :repo_url, 'git@github.com:galulex/monitor_app.git'
 
 set :deploy_to, '/home/ubuntu/cloud_monitor'
 
+set :linked_files, fetch(:linked_files, []).push('config/mongoid.yml')
+
 set :linked_dirs, fetch(:linked_dirs, []).push(
   'log',
   'tmp/pids',
