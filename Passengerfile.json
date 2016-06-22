@@ -1,0 +1,8 @@
+{
+  "environment": "production",
+  "port": 80,
+  "daemonize": true,
+  "user": "ubuntu",
+  "pid_file": "tmp/pids/server.pid",
+  "log_file": "log/server.log"
+}
