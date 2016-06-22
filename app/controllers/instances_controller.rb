@@ -9,13 +9,16 @@ class InstancesController < ApplicationController
   after_action :restream, only: [:create, :destroy]
 
   def create
-    render(:new) && return unless instance.save
-    redirect_to instance_path(instance), turbolinks: true
-    restream
+    if instance.save
+      redirect_to instance_path(instance), turbolinks: true
+      MonitorTriggerJob.perform_now
+    else
+      render :new
+    end
   end
 
   def destroy
-    instance.destroy
+    MonitorTriggerJob.perform_now if instance.destroy
     redirect_to root_path, turbolinks: true
   end
 
@@ -26,6 +29,5 @@ class InstancesController < ApplicationController
   end
 
   def restream
-    MonitorTriggerJob.perform_now
   end
 end
