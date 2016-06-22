@@ -1,0 +1,26 @@
+div data-instance=instance.id
+  = link_to '←', root_path
+  h1.text-huge= instance.name
+  table.table
+    caption
+      ' CPU:
+      => datapoint.cpu
+      ' Disk: Available:
+      => datapoint.disk[:available]
+      ' Used:
+      => datapoint.disk[:used]
+    thead
+      tr
+        th Pid
+        th User
+        th CPU %
+        th Mem %
+        th Name
+    tbody
+      - datapoint.processes.each do |p|
+        tr.align-center
+          td= p.pid
+          td= p.user
+          td= p.cpu
+          td= p.mem
+          td= p.name

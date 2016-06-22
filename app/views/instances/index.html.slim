@@ -1,0 +1,20 @@
+= link_to :new_instance, new_instance_path, remote: true, class: 'button button-primary'
+
+- if instances.any?
+  table.table
+    thead
+      tr.align-left
+        th Name
+        th CPU % average
+        th Space Available
+        th
+    tbody
+      - instances.each do |i|
+        tr
+          td=> link_to i.name, instance_path(i), class: 'text-medium'
+          td=> number_to_human(i.datapoints.avg(:cpu))
+          td=> number_to_human_size(i.datapoint.disk[:available] + '000') if i.datapoint
+          td
+            => link_to '×', instance_path(i), class: 'button text-medium', remote: true, method: :delete,
+              data: { confirm: t('.confirm_delete'), disable_with: '...' }
+

@@ -1,0 +1,6 @@
+en:
+  links:
+    new_instance: Add New Instance
+  instances:
+    index:
+      confirm_delete: All information realted to this instance will be deleted. Are you sure?

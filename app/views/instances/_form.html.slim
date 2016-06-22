@@ -1,0 +1,11 @@
+= form_for instance, remote: true do |f|
+  .input.full-width
+    = f.text_field :name, placeholder: true
+    .text-error= instance.errors[:name].first
+  .input.full-width
+    = f.text_field :url, placeholder: true
+    .text-error= instance.errors[:url].first
+  .input.full-width
+    = f.password_field :token, placeholder: true
+    .text-error= instance.errors[:token].first
+  = f.submit :Ok, class: 'button button-primary', data: { disable_with: 'Connecting...' }

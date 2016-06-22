@@ -1,0 +1,21 @@
+$lazy-padding: 40px;
+$lazy-bg: #dee6ea;
+
+@import 'sierra';
+@import 'lazybox';
+
+.main {
+  max-width: 1000px;
+  width: 100%;
+  padding: 2%;
+  margin: 0 auto;
+}
+
+#lazybox {
+  color: #333;
+}
+
+form {
+  width: 100%;
+  max-width: 500px;
+}

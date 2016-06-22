@@ -1,0 +1,1 @@
+$.lazybox("<%= j(render 'form') %>")
