@@ -75,4 +75,4 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 end
 
-ActionCable.server.config.allowed_request_origins = [%r{(http|https):\/\/http://ec2-52-205-251-222.compute-1.amazonaws.com/}]
+ActionCable.server.config.allowed_request_origins = ['http://ec2-52-205-251-222.compute-1.amazonaws.com']
