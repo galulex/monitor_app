@@ -23,7 +23,7 @@ class Instance
     res = Net::HTTP.get_response(uri)
     return if res.code == '200'
     errors.add(:url, 'No agent running for this url or invalid token')
-  rescue StandartError
+  rescue StandardError
     errors.add(:url, 'No agent running for this url or invalid token')
   end
 end

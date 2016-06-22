@@ -6,8 +6,6 @@ class InstancesController < ApplicationController
   }
   expose :instance
 
-  after_action :restream, only: [:create, :destroy]
-
   def create
     if instance.save
       redirect_to instance_path(instance), turbolinks: true
@@ -26,8 +24,5 @@ class InstancesController < ApplicationController
 
   def instance_params
     params.require(:instance).permit(:name, :url, :token)
-  end
-
-  def restream
   end
 end
